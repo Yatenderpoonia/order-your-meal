@@ -34,7 +34,7 @@ orderYourMealApp.config(function($routeProvider) {
       when('/help', {
         templateUrl: 'views/help.html'
       }).
-      when('/feedback', {
-          templateUrl: 'views/feedback.html'
+      when('/feed', {
+          templateUrl: 'views/feed.html'
   });
 });
