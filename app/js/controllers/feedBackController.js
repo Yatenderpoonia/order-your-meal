@@ -5,6 +5,7 @@ orderYourMealApp.controller('feedBackController',
 
        $scope.submit = function () {
 
-           alert('ThankYou '+$scope.name+' Your feedback has been saved.');
+           alert('ThankYou ' + $scope.name + ' Your feedback has been saved.');
+           $location.url('/');
        }
     });
