@@ -107,7 +107,7 @@ input.ng-invalid.ng-dirty {
 /* customer */
 
 .fm-customer-bkg {
-  background-image: url(../img/paris.png);
+  background-image: url('http://i2.cdn.cnn.com/cnnnext/dam/assets/150827094014-restaurant-design-verandah-super-169.jpg');
   opacity: 0.7;
   height: 705px;
 }
@@ -121,7 +121,7 @@ input.ng-invalid.ng-dirty {
 
 .fm-restaurant-list table {
   margin: -10px -20px -20px -10px;
-  width:675px;
+  width:800px;
 }
 
 .fm-restaurant-list th:first-child {
@@ -134,8 +134,8 @@ input.ng-invalid.ng-dirty {
 
 .fm-restaurant-list img {
   margin-right: 10px;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 

@@ -9,14 +9,17 @@
     "url": "git://github.com/Yatenderpoonia/order-your-meal.git"
   },
   "author": "yatender",
-  "contributors": [
-  ],
+  "contributors": [],
   "main": "scripts/server.js",
   "scripts": {
-    "start":"node server/start.js",
+    "start": "node server/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-material": "^1.1.4",
     "body-parser": "^1.17.1",
     "connect": "^3.6.0",
     "csv": ">= 0.2.1",

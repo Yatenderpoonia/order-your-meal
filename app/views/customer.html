@@ -18,6 +18,21 @@
       </div>
 
       <div class="control-group">
+        <label class="control-label" for="LocationDeatils">City</label>
+        <div class="controls">
+          <input type="text" ng-model="xyz" ng-change="searchLocation(xyz);" required>
+          <ul class="demo" style="list-style-type: none;margin: 0;padding: 0;width:220px">
+            <li class="benefits"style=" background: #cce5ff;" ng-repeat="location in locations" ng-click="getLocation(location);"  value="{{location.entity_id}}" ng-model="suggestion" >{{location.title}}</li>
+          </ul>
+          <!--<select type="text" id="Location" placeholder="Enter Your Location"
+                 class="input-xlarge"
+                  ng-model="customerLocation" required>
+
+            <option ng-repeat="location in locations" value="{{location.entity_id}}">{{location.title}}</option>
+          </select>-->
+        </div>
+      </div>
+      <div class="control-group">
         <label class="control-label" for="address">Delivery Address</label>
         <div class="controls">
           <input type="text" id="address" placeholder="Enter Your Address"
@@ -26,7 +41,7 @@
         </div>
       </div>
 
-    </div>
+  </div>
     <div class="modal-footer">
       <button class="btn btn-success"
               ng-disabled="customerForm.$invalid"

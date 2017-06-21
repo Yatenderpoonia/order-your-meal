@@ -1,10 +1,10 @@
 'use strict';
 
 orderYourMealApp.controller('RestaurantsController',
-    function RestaurantsController($scope, customer, $location, Restaurant) {
+    function RestaurantsController($scope, customer, $location, Restaurant,$http, $rootScope) {
 
   if (!customer.address) {
-    $location.url('/customer');
+    $location.url('/resturants');
   }
 
   var filter = $scope.filter = {
@@ -12,8 +12,45 @@ orderYourMealApp.controller('RestaurantsController',
     price: null,
     rating: null
   };
+        var allRestaurants=[];
+  //var allRestaurants = Restaurant.query(filterAndSortRestaurants);
+        var generateRestaurantFromResponse=function(resturants){
+          console.log(JSON.stringify(resturants));
+            $rootScope.restaurants=[];
 
-  var allRestaurants = Restaurant.query(filterAndSortRestaurants);
+            angular.forEach(resturants,function (resturant,index) {
+                var temp={};
+                temp.name=resturant.restaurant.name;
+                temp.description=resturant.restaurant.location.address;
+                temp.rating= parseInt(resturant.restaurant.user_rating.aggregate_rating);
+                temp.price=parseInt(resturant.restaurant.price_range);
+                temp.img=resturant.restaurant.featured_image;
+                //temp.menuimg=resturant.restaurant.menu_url;
+                temp.cuisine=resturant.restaurant.cuisines;
+                temp.id=resturant.restaurant.id;
+                $scope.restaurants.push(temp);
+                allRestaurants.push(temp);
+            })
+        };
+  var getRestaurants = function () {
+      var cityId = $location.search().cityId;
+      //
+      var config = {headers: {
+          'user-key': '1cd8ad9c1877866225f7ee09eede4ce8',
+          'Accept': 'application/json'
+      }
+      };
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=100"+"&entity_type=city&q="+($rootScope.value).split(',')[0],config)
+          .then(function(response) {
+              //First function handles success
+
+              generateRestaurantFromResponse(response.data.restaurants);
+          }, function(response) {
+              //Second function handles error
+              alert("Something went wrong");
+          });
+  };
+  getRestaurants();
   $scope.$watch('filter', filterAndSortRestaurants, true);
 
   function filterAndSortRestaurants() {
@@ -22,7 +59,7 @@ orderYourMealApp.controller('RestaurantsController',
     // filter
     angular.forEach(allRestaurants, function(item, key) {
       if (filter.price && filter.price !== item.price) {
-        return;//next item pe hit kar lega
+        return;
       }
 
       if (filter.rating && filter.rating !== item.rating) {
@@ -30,10 +67,10 @@ orderYourMealApp.controller('RestaurantsController',
       }
 
       if (filter.cuisine.length && filter.cuisine.indexOf(item.cuisine) === -1) {
-        return;
+        return ;
       }
 
-      $scope.restaurants.push(item);//array me object add ho jayega
+      $scope.restaurants.push(item);
     });
 
 

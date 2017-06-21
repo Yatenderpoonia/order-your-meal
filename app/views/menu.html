@@ -5,18 +5,18 @@
 
   <div class="row">
     <div class="span2">
-      <img src="img/restaurants/angular.jpg" class="img-rounded">
+      <img ng-src="{{menuimg.featured_image}}" class="img-rounded">
     </div>
 
     <div class="span10">
-      <h3>{{restaurant.name}}</h3>
+      <h3>{{menuimg.name}}</h3>
 
       <div class="row">
         <div class="span2">
-          <div>{{restaurant.address}}</div>
+          <div>{{menuimg.location.address}}</div>
 
-          <fm-rating ng-model="$parent.restaurant.rating" readonly="true"></fm-rating>
-          <fm-rating ng-model="$parent.restaurant.price" symbol="$" readonly="true"></fm-rating>
+          <fm-rating ng-model="$parent.menuimg.user_rating.aggregate_rating" readonly="true"></fm-rating>
+          <fm-rating ng-model="$parent.menuimg.price_range" symbol="₹" readonly="true"></fm-rating>
 
         </div>
         <div class="span4">
@@ -38,7 +38,7 @@
       <li ng-repeat="menuItem in restaurant.menuItems">
         <a href ng-click="cart.add(menuItem, restaurant)">
           <span>{{menuItem.name}}</span>
-          <span>{{menuItem.price}}</span>
+          <span>{{menuItem.price|currency}}</span>
           <i class="icon-plus-sign"></i>
         </a>
       </li>
@@ -59,9 +59,8 @@
         <a href="#/checkout" ng-disabled="!cart.items.length" class="btn">Checkout</a>
       </div>
       <p>
-        <b>Total: {{cart.total() | currency}}</b>
+        <b>Total: {{cart.total()}}</b>
       </p>
     </form>
   </div>
-
 </div>

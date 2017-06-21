@@ -5,11 +5,11 @@ var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource']);
 orderYourMealApp.config(function($routeProvider) {
 
   $routeProvider.
-      when('/', {
+      when('/resturants', {
         controller: 'RestaurantsController',
         templateUrl: 'views/restaurants.html'
       }).
-      when('/menu/:restaurantId', {
+      when('/menu', {
         controller: 'MenuController',
         templateUrl: 'views/menu.html'
       }).
@@ -21,7 +21,7 @@ orderYourMealApp.config(function($routeProvider) {
         controller: 'ThankYouController',
         templateUrl: 'views/thank-you.html'
       }).
-      when('/customer', {
+      when('/', {
         controller: 'CustomerController',
         templateUrl: 'views/customer.html'
       }).
