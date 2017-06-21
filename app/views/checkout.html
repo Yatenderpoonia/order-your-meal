@@ -69,7 +69,7 @@
       </table>
 
       <div class="fm-right">
-        <a href="#/menu/{{restaurantId}}" class="btn">Back to Menu</a>
+        <a ng-click="backtomenu();" class="btn">Back to Menu</a>
         <a href class="btn btn-danger" ng-click="cart.reset()">Clear Cart</a>
         <button class="btn btn-primary"
                 ng-disabled="form.$invalid || !cart.items.length || submitting"

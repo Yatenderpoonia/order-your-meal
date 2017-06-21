@@ -34,17 +34,19 @@ orderYourMealApp.controller('RestaurantsController',
         };
   var getRestaurants = function () {
       var cityId = $location.search().cityId;
+      var query=$location.search().q;
       //
       var config = {headers: {
           'user-key': '1cd8ad9c1877866225f7ee09eede4ce8',
           'Accept': 'application/json'
       }
       };
-      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=100"+"&entity_type=city&q="+($rootScope.value).split(',')[0],config)
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=100"+"&entity_type=city&q="+query.split(',')[0],config)
           .then(function(response) {
               //First function handles success
 
               generateRestaurantFromResponse(response.data.restaurants);
+              generateCuisneFromRespnose(response.data.restaurants);
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -55,7 +57,7 @@ orderYourMealApp.controller('RestaurantsController',
 
   function filterAndSortRestaurants() {
     $scope.restaurants = [];
-
+    console.log('filter csuinse',filter.cuisine);
     // filter
     angular.forEach(allRestaurants, function(item, key) {
       if (filter.price && filter.price !== item.price) {
@@ -66,8 +68,15 @@ orderYourMealApp.controller('RestaurantsController',
         return;
       }
 
-      if (filter.cuisine.length && filter.cuisine.indexOf(item.cuisine) === -1) {
-        return ;
+      if (filter.cuisine.length) {
+          var isPassed = false;
+         filter.cuisine.forEach(function (cu) {
+             if(item.cuisine.toString().indexOf(cu)>-1){
+                 isPassed=true;
+             }
+         });
+         if(!isPassed)return ;
+
       }
 
       $scope.restaurants.push(item);
@@ -106,8 +115,18 @@ orderYourMealApp.controller('RestaurantsController',
 
     return filter.sortAsc ? '\u25B2' : '\u25BC';
   };
+       var  generateCuisneFromRespnose = function(restaurants){
+           var cuisineSet = new Set();
+            restaurants.forEach(function (rest) {
+                var temprest  = rest.restaurant.cuisines.split(',');
+                temprest.forEach(function (cu) {
+                    cuisineSet.add(cu);
+                })
+            });
+            $scope.CUISINES = Array.from(cuisineSet);
+            console.log('custion',JSON.stringify($scope.CUISINES));
 
-
+        };
   $scope.CUISINE_OPTIONS = {
     african: 'African',
     american: 'American',

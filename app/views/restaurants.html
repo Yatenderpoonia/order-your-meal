@@ -21,8 +21,8 @@
       <h5>Cuisine</h5>
 
       <div fm-checkbox-list ng-model="filter.cuisine">
-        <label ng-repeat="restaurant in restaurants" class="checkbox">
-          <input type="checkbox"> {{restaurant.cuisine}}
+        <label ng-repeat="cuisine in CUISINES" class="checkbox">
+          <input type="checkbox" value="{{cuisine}}"> {{cuisine}}
         </label>
       </div>
     </form>

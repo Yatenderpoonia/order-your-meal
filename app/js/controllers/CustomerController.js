@@ -18,8 +18,8 @@ orderYourMealApp.controller('CustomerController',
     customer.name = customerName;
     customer.address = customerAddress;
 
-    $location.url('/resturants?cityId='+$scope.customerLocation);
-      $rootScope.value=$scope.xyz;
+    $location.url('/resturants?cityId='+$scope.customerLocation+'&q='+$scope.xyz);
+      //$rootScope.value=$scope.xyz;
 
 
   };

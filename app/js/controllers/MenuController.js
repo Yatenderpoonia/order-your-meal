@@ -10,14 +10,14 @@ orderYourMealApp.controller('MenuController',
         $scope.cart = cart;
         console.log($scope.restaurant);
         $scope.getMenu = function () {
-            var res_id = $location.search().id;
+            $scope.res_id = $location.search().id;
             var config = {
                 headers: {
                     'user-key': '1cd8ad9c1877866225f7ee09eede4ce8',
                     'Accept': 'application/json'
                 }
             };
-            $http.get("https://developers.zomato.com/api/v2.1/restaurant?res_id=" + res_id, config)
+            $http.get("https://developers.zomato.com/api/v2.1/restaurant?res_id=" + $scope.res_id, config)
                 .then(function (response) {
                     $scope.menuimg=response.data;
                     console.log('restaurant',JSON.stringify($scope.menuimg));
