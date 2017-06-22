@@ -5,17 +5,28 @@
   <title>OrderYourMeal</title>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/bootstrap-united.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-
-
-  <div class="navbar" ng-controller="NavbarController">
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card-2" style="letter-spacing:4px;">
+    <a href="#/" class="w3-bar-item w3-button">Order Your Meal</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#how-it-works" class="w3-bar-item w3-button">How it Works</a>
+      <a href="#who-we-are" class="w3-bar-item w3-button">Who we are</a>
+      <a href="#help" class="w3-bar-item w3-button">Help</a>
+      <a href="#feed" class="w3-bar-item w3-button">Feedback</a>
+    </div>
+  </div>
+</div>
+  <!--<div class="navbar">
     <div class="navbar-inner">
       <a class="brand" href="#/">OrderYourMeal</a>
       <ul class="nav">
-        <li ng-class="{active: routeIs('/')}"><a href="#/">Home</a></li>
-        <li ng-class="{active: routeIs('/how-it-works')}"><a href="#/how-it-works">How it works</a></li>
-        <li ng-class="{active: routeIs('/who-we-are')}"><a href="#/who-we-are">Who we are</a></li>
+        <li ><a href="#/">Home</a></li>
+        <li><a href="#/how-it-works">How it works</a></li>
+        <li<a href="#/who-we-are">Who we are</a></li>
       </ul>
 
       <ul class="nav pull-right">
@@ -24,11 +35,9 @@
       </ul>
     </div>
   </div>
+-->
 
-
-  <ng-view></ng-view>
-
-</div>
+<ng-view></ng-view>
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
@@ -52,7 +61,5 @@
 <script src="js/services/cart.js"></script>
 <script src="js/services/Restaurant.js"></script>
 <script src="js/controllers/feedBackController.js"></script>
-
-
 </body>
 </html>

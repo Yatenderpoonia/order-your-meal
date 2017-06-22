@@ -5,8 +5,8 @@ orderYourMealApp.directive('fmDeliverTo', function() {
     restrict: 'E',
     templateUrl: 'js/directives/fmDeliverTo.html',
     scope: {},
-    controller: function FmDeliverToController($scope, customer) {
-      $scope.customer = customer;
+    controller: function FmDeliverToController($scope,$location) {
+      $scope.customer = $location.search().q;
     }
   };
 });

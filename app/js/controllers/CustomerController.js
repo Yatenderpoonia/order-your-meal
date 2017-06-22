@@ -3,22 +3,27 @@
 orderYourMealApp.controller('CustomerController',
     function CustomerController($scope, customer, $location,$http,$rootScope) {
 
-  $scope.customerName = customer.name;
-  $scope.customerAddress = customer.address;
-  $scope.customerLocation='';
-  $scope.xyz='';
+/*  $scope.customerName = customer.name;
+  $scope.customerAddress = customer.address;*/
+
 
 
   $scope.getLocation= function(cityObj){
       $scope.xyz= cityObj.title;
       $scope.customerLocation=cityObj.city_id;
+      console.log('cityoje',JSON.stringify(cityObj));
+      $scope.locations='';
   };
 
-  $scope.findRestaurants = function(customerName, customerAddress) {
-    customer.name = customerName;
-    customer.address = customerAddress;
+  $scope.findRestaurants = function() {
+    /*customer.name = customerName;
+    customer.address = customerAddress;*/
+    console.log('location selected',$scope.customerLocation,$scope.xyz);
+     if($scope.customerLocation && $scope.xyz){
 
-    $location.url('/resturants?cityId='+$scope.customerLocation+'&q='+$scope.xyz);
+         $location.url('/resturants?cityId='+$scope.customerLocation+'&q='+$scope.xyz);
+
+     }
       //$rootScope.value=$scope.xyz;
 
 

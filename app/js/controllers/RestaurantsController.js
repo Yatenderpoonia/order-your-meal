@@ -3,10 +3,10 @@
 orderYourMealApp.controller('RestaurantsController',
     function RestaurantsController($scope, customer, $location, Restaurant,$http, $rootScope) {
 
-  if (!customer.address) {
+  /*if (!customer.address) {
     $location.url('/resturants');
-  }
-
+  }*/
+$scope.filterResturants='';
   var filter = $scope.filter = {
     cuisine: [],
     price: null,
@@ -41,11 +41,55 @@ orderYourMealApp.controller('RestaurantsController',
           'Accept': 'application/json'
       }
       };
-      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=100"+"&entity_type=city&q="+query.split(',')[0],config)
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=20"+"&entity_type=city&q="+query.split(',')[0],config)
           .then(function(response) {
               //First function handles success
 
               generateRestaurantFromResponse(response.data.restaurants);
+              generateCuisneFromRespnose(response.data.restaurants);
+          }, function(response) {
+              //Second function handles error
+              alert("Something went wrong");
+          });
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=20&count=40"+"&entity_type=city&q="+query.split(',')[0],config)
+          .then(function(response) {
+              //First function handles success
+
+              generateRestaurantFromResponse(response.data.restaurants);
+
+              generateCuisneFromRespnose(response.data.restaurants);
+          }, function(response) {
+              //Second function handles error
+              alert("Something went wrong");
+          });
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=40&count=60"+"&entity_type=city&q="+query.split(',')[0],config)
+          .then(function(response) {
+              //First function handles success
+
+              generateRestaurantFromResponse(response.data.restaurants);
+
+              generateCuisneFromRespnose(response.data.restaurants);
+          }, function(response) {
+              //Second function handles error
+              alert("Something went wrong");
+          });
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=60&count=80"+"&entity_type=city&q="+query.split(',')[0],config)
+          .then(function(response) {
+              //First function handles success
+
+              generateRestaurantFromResponse(response.data.restaurants);
+
+              generateCuisneFromRespnose(response.data.restaurants);
+          }, function(response) {
+              //Second function handles error
+              alert("Something went wrong");
+          });
+      $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=80&count=100"+"&entity_type=city&q="+query.split(',')[0],config)
+          .then(function(response) {
+              //First function handles success
+
+              generateRestaurantFromResponse(response.data.restaurants);
+
               generateCuisneFromRespnose(response.data.restaurants);
           }, function(response) {
               //Second function handles error

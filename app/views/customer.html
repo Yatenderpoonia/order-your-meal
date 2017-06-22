@@ -1,6 +1,23 @@
-<div class="fm-customer-bkg img-rounded">
+
+<div class="fm-customer-bkg">
+  <div class="home-search">
+    <h2 class="hero-title">Order from restaurants near you</h2>
+    <div class="clearfix">
+      <div class="type-location-container">
+        <input  type="text" class="type-location" name="location" placeholder="Type delivery location (landmark, road or area)" ng-model="xyz" ng-change="searchLocation(xyz);"/>
+<div>
+  <ul class="list-resutrant">
+    <li class="li-resturant"  ng-repeat="location in locations" ng-click="getLocation(location);" value="{{location.entity_id}}">{{location.title}}</li>
+  </ul>
+      </div>
+        <div class="show-restaurants" ng-click="findRestaurants();">
+          <span>SHOW RESTAURANTS</span>
+        </div>
+          <span class="icon-swgy-magnifier"></span>
+      </div>
 </div>
 
+<!--
 <form class="form-horizontal" name="customerForm" novalidate>
   <div class="modal">
     <div class="modal-header">
@@ -16,20 +33,22 @@
                  ng-model="customerName" required>
         </div>
       </div>
-
       <div class="control-group">
-        <label class="control-label" for="LocationDeatils">City</label>
+        <label class="control-label">City</label>
         <div class="controls">
-          <input type="text" ng-model="xyz" ng-change="searchLocation(xyz);" required>
-          <ul class="demo" style="list-style-type: none;margin: 0;padding: 0;width:220px">
-            <li class="benefits"style=" background: #cce5ff;" ng-repeat="location in locations" ng-click="getLocation(location);"  value="{{location.entity_id}}" ng-model="suggestion" >{{location.title}}</li>
+          <input list="browsers"  type="text" ng-model="xyz" ng-change="searchLocation(xyz);" required>
+          &lt;!&ndash;<datalist id="browsers">
+            <option  ng-repeat="location in locations" value="{{location.title}}"  ng-click="getLocation(location);">
+          </datalist>&ndash;&gt;
+         <ul class="demo" style="list-style-type: none;margin: 0;padding: 0;width:220px">
+            <li class="benefits"  style=" background: #cce5ff;display:block;" ng-repeat="location in locations" ng-click="getLocation(location);"  value="{{location.entity_id}}" ng-model="suggestion" >{{location.title}}</li>
           </ul>
-          <!--<select type="text" id="Location" placeholder="Enter Your Location"
+          &lt;!&ndash;<select type="text" id="Location" placeholder="Enter Your Location"
                  class="input-xlarge"
                   ng-model="customerLocation" required>
 
             <option ng-repeat="location in locations" value="{{location.entity_id}}">{{location.title}}</option>
-          </select>-->
+          </select>&ndash;&gt;
         </div>
       </div>
       <div class="control-group">
@@ -49,3 +68,4 @@
     </div>
   </div>
 </form>
+-->

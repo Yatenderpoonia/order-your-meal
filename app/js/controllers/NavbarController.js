@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 orderYourMealApp.controller('NavbarController', function NavbarController($scope, $location) {
@@ -7,3 +8,4 @@ orderYourMealApp.controller('NavbarController', function NavbarController($scope
   };
 
 });
+*/
