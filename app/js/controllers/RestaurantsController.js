@@ -37,7 +37,7 @@ $scope.filterResturants='';
       var query=$location.search().q;
       //
       var config = {headers: {
-          'user-key': '1cd8ad9c1877866225f7ee09eede4ce8',
+          'user-key': 'd1a4ed7215f44239de81f991df52350d',
           'Accept': 'application/json'
       }
       };
