@@ -59,7 +59,7 @@
     <form>
       <ul class="unstyled">
         <li ng-repeat="item in cart.items">
-          <a href ng-click="cart.remove(item)"><i class="icon-remove-sign"></i></a>
+          <a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></a>
           {{item.qty}} &times; {{item.name}}
         </li>
       </ul>
