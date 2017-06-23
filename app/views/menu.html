@@ -3,8 +3,9 @@
 -->
 
 
-
+<div class="loader" ng-show="showLoader"></div>
 <br><br><br>
+<div ng-show="loadResturants">
 <div class="container fm-restaurant">
 
   <div class="row">
@@ -32,6 +33,10 @@
 </div>
 
 
+
+
+
+
 <div class="row-fluid">
 
   <div class="span8 fm-panel fm-menu-list">
@@ -40,11 +45,10 @@
 
     <ul>
       <li ng-repeat="menuItem in restaurant.menuItems">
-        <a href ng-click="cart.add(menuItem, restaurant)">
-          <span>{{menuItem.name}}</span>
-          <span>{{menuItem.price|currency}}</span>
-          <i class="icon-plus-sign"></i>
-        </a>
+        <a class="add-itemhref" ng-click="cart.add(menuItem, restaurant)">
+        <div class="addButton">Add</div></a>
+        <span>{{menuItem.name}}</span><br>
+          <span>₹{{menuItem.price}}</span>
       </li>
     </ul>
 
@@ -63,8 +67,9 @@
         <a href="#/checkout" ng-disabled="!cart.items.length" class="btn">Checkout</a>
       </div>
       <p>
-        <b>Total: {{cart.total()}}</b>
+        <b>Total: ₹{{cart.total()}}</b>
       </p>
     </form>
   </div>
+</div>
 </div>

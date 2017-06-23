@@ -1,28 +1,52 @@
-<br><br><br>
+
+<div class="container">
+    <form id="contact" action="" method="post">
+        <h3>Feedback Form</h3>
+        <fieldset>
+            <input placeholder="Your name" type="text" tabindex="1" required autofocus ng-model="name">
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+            <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" ng-click="submitButtton();" data-submit="...Sending">Submit</button>
+        </fieldset>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--
 <form>
 
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" ng-model="name" placeholder="Your name..">
+        <input  type="text" id="fname" name="firstname" ng-model="name" placeholder="Your name..">
 
         <label for="lname">Last Name</label>
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-        <label for="country">Country</label>
-        <select id="country" name="country">
-            <option value="australia">India</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-        </select>
+    <label for="lname">Email</label>
+    <input type="email"  name="lastname" placeholder="Enter Your Email">
 
         <label for="subject">Subject</label>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-        <input type="submit" value="Submit" ng-click="submit();">
+        <input class="btn btn-success" type="submit" value="Submit" ng-click="submit();">
 
     </form>
+-->
 
-    <script>
-
-    </script>
 
 

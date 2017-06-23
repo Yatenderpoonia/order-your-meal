@@ -6,6 +6,13 @@ orderYourMealApp.controller('RestaurantsController',
   /*if (!customer.address) {
     $location.url('/resturants');
   }*/
+  $scope.showLoader=true;
+  $scope.loadResturants=true;
+  $scope.address=$location.search().q;
+  if($scope.showLoader)
+  {
+      $scope.loadResturants=false;
+  }
 $scope.filterResturants='';
   var filter = $scope.filter = {
     cuisine: [],
@@ -47,6 +54,8 @@ $scope.filterResturants='';
 
               generateRestaurantFromResponse(response.data.restaurants);
               generateCuisneFromRespnose(response.data.restaurants);
+              $scope.showLoader=false;
+              $scope.loadResturants=true;
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -58,6 +67,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
+              $scope.showLoader=false;
+              $scope.loadResturants=true;
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -69,6 +80,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
+              $scope.showLoader=false;
+              $scope.loadResturants=true;
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -80,6 +93,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
+              $scope.showLoader=false;
+              $scope.loadResturants=true;
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -91,6 +106,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
+              $scope.showLoader=false;
+              $scope.loadResturants=true;
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
