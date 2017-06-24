@@ -551,3 +551,26 @@ fieldset {
 .formMenu{
   margin-left: 10%;
 }
+.home-search .type-location-container .locate-me {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #fff;
+  color: rgba(104,107,120,.8);
+  vertical-align: middle;
+  height: 34px;
+  padding: 0 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.home-search .type-location-container .locate-me-icon {
+  position: relative;
+  top: 10px;
+  right: 3px;
+}
+.home-search .type-location-container .locate-me-text {
+  top: 9px;
+  position: relative;
+  font-weight: 700;
+}

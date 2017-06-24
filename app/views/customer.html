@@ -1,11 +1,16 @@
-
 <div class="fm-customer-bkg">
+<br><br><br>
   <div class="home-search">
     <h2 class="hero-title">Order from restaurants near you</h2>
     <div class="clearfix">
       <div class="type-location-container">
-        <input  type="text" class="type-location" name="location" placeholder="Type delivery location (landmark, road or area)" ng-model="xyz" ng-change="searchLocation(xyz);"/>
-<div>
+        <input  type="text" class="type-location" name="location" placeholder="Type delivery location (landmark, road or area)"  ng-model="xyz" ng-change="searchLocation(xyz);"/>
+        <div class="locate-me" ng-click="nearme();">
+          <span class="locate-me-divider"></span>
+          <span class="locate-me-icon icon-swgy-pointer"></span>
+          <span class="locate-me-text">Locate Me</span>
+        </div>
+        <div>
   <ul class="list-resutrant">
     <li class="li-resturant"  ng-repeat="location in locations" ng-click="getLocation(location);" value="{{location.entity_id}}">{{location.title}}</li>
   </ul>
@@ -16,7 +21,7 @@
           <span class="icon-swgy-magnifier"></span>
       </div>
 </div>
-
+  </div>
 <!--
 <form class="form-horizontal" name="customerForm" novalidate>
   <div class="modal">

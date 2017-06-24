@@ -5,9 +5,39 @@ orderYourMealApp.controller('CustomerController',
 
 /*  $scope.customerName = customer.name;
   $scope.customerAddress = customer.address;*/
+        $scope.location_name='';
+        var mydata='';
+        var citydata='';
+        var mysrclat= 0; var mysrclong = 0;
+        $scope.nearme = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+
+                    mysrclat = position.coords.latitude;
+                    mysrclong = position.coords.longitude;
+                    console.log(mysrclat);
+                    console.log(mysrclong);
+                    var config = {headers: {
+                        'user-key': 'd1a4ed7215f44239de81f991df52350d',
+                        'Accept': 'application/json'
+                    }
+                    };
+                    $http.get("https://developers.zomato.com/api/v2.1/geocode?lat="+mysrclat+"&lon="+mysrclong,config)
+                        .then(function(response) {
+                            mydata=response.data.location.title;
+                            citydata=response.data.location.city_id;
+                            console.log(mydata);
+                            $scope.xyz= mydata;
+                            $scope.customerLocation=citydata;
+                            $scope.findRestaurants();
+                        });
+
+                });
+
+            }
 
 
-
+        };
   $scope.getLocation= function(cityObj){
       $scope.xyz= cityObj.title;
       $scope.customerLocation=cityObj.city_id;

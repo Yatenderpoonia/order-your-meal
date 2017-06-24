@@ -54,8 +54,8 @@ $scope.filterResturants='';
 
               generateRestaurantFromResponse(response.data.restaurants);
               generateCuisneFromRespnose(response.data.restaurants);
-              $scope.showLoader=false;
-              $scope.loadResturants=true;
+             /* $scope.showLoader=false;
+              $scope.loadResturants=true;*/
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -67,8 +67,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
-              $scope.showLoader=false;
-              $scope.loadResturants=true;
+              /*$scope.showLoader=false;
+              $scope.loadResturants=true;*/
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -80,8 +80,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
-              $scope.showLoader=false;
-              $scope.loadResturants=true;
+             /* $scope.showLoader=false;
+              $scope.loadResturants=true;*/
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -93,8 +93,8 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
-              $scope.showLoader=false;
-              $scope.loadResturants=true;
+             /* $scope.showLoader=false;
+              $scope.loadResturants=true;*/
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
