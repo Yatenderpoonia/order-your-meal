@@ -18,7 +18,7 @@ orderYourMealApp.controller('feedBackController',
            });
            if($scope.name.length > 0) {
                alert('ThankYou ' + $scope.name + ' Your feedback has been saved.');
-              // $location.url('/');
+               $location.url('/');
            }
 }
 
