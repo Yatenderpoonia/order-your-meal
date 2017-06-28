@@ -38,7 +38,7 @@ orderYourMealApp.controller('CustomerController',
 
 
         };
-  $scope.getLocation= function(cityObj){
+        $scope.getLocation= function(cityObj){
       $scope.xyz= cityObj.title;
       $scope.customerLocation=cityObj.city_id;
       console.log('cityoje',JSON.stringify(cityObj));
@@ -70,6 +70,7 @@ orderYourMealApp.controller('CustomerController',
                     $scope.locations = response.data.location_suggestions;
                 }, function(response) {
                     //Second function handles error
+
                     alert("Something went wrong");
                 });
         }

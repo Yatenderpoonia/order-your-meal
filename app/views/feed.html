@@ -6,13 +6,13 @@
             <input placeholder="Your name" type="text" tabindex="1" required autofocus ng-model="name">
         </fieldset>
         <fieldset>
-            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+            <input placeholder="Your Email Address" type="email" tabindex="2" required ng-model="email">
         </fieldset>
         <fieldset>
-            <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+            <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required ng-model="mobile">
         </fieldset>
         <fieldset>
-            <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+            <textarea placeholder="Type your message here...." tabindex="5" required ng-model="message"></textarea>
         </fieldset>
         <fieldset>
             <button name="submit" type="submit" id="contact-submit" ng-click="submitButtton();" data-submit="...Sending">Submit</button>
