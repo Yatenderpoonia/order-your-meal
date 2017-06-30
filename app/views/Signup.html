@@ -1,0 +1,17 @@
+<div class="container">
+    <form id="contact">
+        <h3>Sign up Form</h3>
+        <fieldset>
+            <input placeholder="Your full name" type="text" tabindex="1" required autofocus ng-model="name">
+        </fieldset>
+        <fieldset>
+            <input placeholder="Email Address" type="email" tabindex="2" required ng-model="email">
+        </fieldset>
+        <fieldset>
+            <input placeholder="Password" type="password" tabindex="3" required ng-model="password">
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit"  ng-click="signup();" data-submit="...Sending">Register</button>
+        </fieldset>
+    </form>
+</div>
