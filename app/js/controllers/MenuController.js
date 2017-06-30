@@ -1,7 +1,7 @@
 'use strict';
 
 orderYourMealApp.controller('MenuController',
-    function MenuController($scope, $routeParams, Restaurant, cart, $http,$location) {
+    function MenuController($scope, $routeParams, Restaurant, cart, $http,$location,localStorage) {
        //alert('coming');
   //$scope.restaurant = Restaurant.get({id: $routeParams.restaurant});
         $scope.showLoader=true;
@@ -26,7 +26,9 @@ orderYourMealApp.controller('MenuController',
             $http.get("https://developers.zomato.com/api/v2.1/restaurant?res_id=" + $scope.res_id, config)
                 .then(function (response) {
                     $scope.menuimg=response.data;
-                    console.log('restaurant',JSON.stringify($scope.menuimg));
+                    //console.log('restaurant',JSON.stringify($scope.menuimg));
+                    console.log(JSON.stringify($scope.menuimg.name));
+                    console.log(JSON.stringify($scope.menuimg.location.address));
                     $scope.showLoader=false;
                     $scope.loadResturants=true;
                     //First function handles success
@@ -37,6 +39,13 @@ orderYourMealApp.controller('MenuController',
                     alert("Something went wrong");
                 });
 
+        };
+        $scope.checkout = function () {
+            if(localStorage.getItem('userId')){
+                $location.url('/checkout?name='+$scope.menuimg.name+'&address='+$scope.menuimg.location.address+'');
+            }
+            else
+                $location.url('/login');
         };
         $scope.getMenu();
 

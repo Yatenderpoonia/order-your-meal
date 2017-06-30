@@ -1,6 +1,6 @@
 'use strict';
 
-var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource']);
+var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource','ngStorage']);
 
 orderYourMealApp.config(function($routeProvider) {
 
@@ -31,6 +31,14 @@ orderYourMealApp.config(function($routeProvider) {
       when('/how-it-works', {
         templateUrl: 'views/how-it-works.html'
       }).
+  when('/login', {
+      templateUrl: 'views/login.html',
+      controller:'loginController'
+  }).
+  when('/signup', {
+      templateUrl: 'views/Signup.html',
+      controller:'signupController'
+  }).
       when('/help', {
         templateUrl: 'views/help.html'
       }).

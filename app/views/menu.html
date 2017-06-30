@@ -64,7 +64,7 @@
         </li>
       </ul>
       <div class="pull-right" ng-show="cart.items.length">
-        <a href="#/checkout" ng-disabled="!cart.items.length" class="btn">Checkout</a>
+        <a  ng-disabled="!cart.items.length" class="btn" ng-click="checkout();">Checkout</a>
       </div>
       <p>
         <b>Total: ₹{{cart.total()}}</b>

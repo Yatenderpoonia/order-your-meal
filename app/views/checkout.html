@@ -17,7 +17,7 @@
         <div class="control-group">
           <select name="ccType" class="input-medium"
                   required
-                  ng-model="cart.payment.type">
+                  ng-model="cart.payment.cardType">
             <option value="visa">Visa</option>
             <option value="mc">MasterCard</option>
             <option value="amex">Amex</option>
@@ -27,9 +27,8 @@
         <div class="control-group">
           <input type="text" name="ccNum"
                  placeholder="Card number"
-                 maxlength="16"
-                 required ng-pattern="/\d{16}/"
-                 ng-model="cart.payment.number">
+                 maxlength="16" required
+                 ng-model="cart.payment.CardNum">
         </div>
         <span class="control-group">
           <input type="text" name="ccExp" placeholder="mm/yyyy" class="input-medium"
@@ -62,7 +61,7 @@
           <td>{{item.name}}</td>
           <td>{{item.price | currency}}</td>
           <td>{{item.price * item.qty | currency}}</td>
-          <td><a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></a></td>
+          <td><a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></td>
         </tr>
         <tr>
           <th></th>

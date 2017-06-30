@@ -16,9 +16,9 @@ orderYourMealApp.controller('feedBackController',
            }).then(function (response) {
 
            });
-           if($scope.name.length > 0) {
-               alert('ThankYou ' + $scope.name + ' Your feedback has been saved.');
-              // $location.url('/');
+           if(mydata.name&&mydata.email&&mydata.message) {
+               BootstrapDialog.alert('ThankYou! ' + $scope.name + ' Your feedback has been saved.');
+               $location.url('/');
            }
 }
 

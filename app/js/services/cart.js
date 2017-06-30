@@ -42,21 +42,20 @@ orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScop
   }
 
 
-  self.total = function() {
+   self.total = function() {
     return self.items.reduce(function(sum, item) {
       return sum + Number(item.price * item.qty);
     }, 0);
   };
-
-
   self.submitOrder = function() {
     if (self.items.length) {
-      return $http.post('/api/order', {
+      return $http.post('https://arcane-beyond-17211.herokuapp.com/checkout', {
         items: self.items,
         restaurant: self.restaurant,
         payment: self.payment,
-        deliverTo: customer
+        name: self.customerName
       }).then(function(response) {
+
         self.reset();
         return response.data.orderId;
       });
