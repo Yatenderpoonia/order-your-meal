@@ -2,7 +2,7 @@
 
 orderYourMealApp.controller('CheckoutController',
     function CheckoutController($scope, cart, customer, $location,$http) {
-  $scope.customerName='';
+  $scope.customerName=JSON.parse(localStorage.getItem('userName'));
   $scope.customerAddress='';
   $scope.cart = cart;
   $scope.restaurantId =cart.restaurant.id;

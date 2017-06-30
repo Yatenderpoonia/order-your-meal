@@ -1,7 +1,8 @@
 
 orderYourMealApp.controller('loginController',
     function loginController($scope, customer, $location,$http, localStorage) {
-
+        $scope.res_name = $location.search().name;
+        $scope.res_address = $location.search().address;
     $scope.signup=function () {
         $location.url('/signup');
     };
@@ -14,15 +15,22 @@ orderYourMealApp.controller('loginController',
            $http.post("https://arcane-beyond-17211.herokuapp.com/login",loginData,{
                headers: {'Content-Type': 'application/json'}
            }).then(function (response) {
-               console.log(response.data.id);
                if (response.data.isSuccess === true) {
                    //window.localStorage['getid']=
                    localStorage.setItem('userId', JSON.stringify(response.data.id));
+                   localStorage.setItem('userName', JSON.stringify(response.data.name));
+                   console.log(localStorage.getItem('userName'));
                    console.log(localStorage.getItem('userId'));
                    console.log(response.data);
                    console.log("Login sucessfully");
-                   BootstrapDialog.alert('Welcome! Please fill your payment details');
-                   $location.url('/checkout')
+                   if($scope.res_name && $scope.res_address) {
+                       BootstrapDialog.alert('Welcome!' + response.data.name + ' Please fill your payment details');
+                       $location.url('/checkout?name=' + $scope.res_name + '&address=' + $scope.res_address + '');
+                   }
+                   else{
+                       $location.path('/');
+                   }
+
                }
            }, function(response) {
                {

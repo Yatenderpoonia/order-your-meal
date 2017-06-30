@@ -574,3 +574,28 @@ fieldset {
   position: relative;
   font-weight: 700;
 }
+.home-search .show-login {
+  width: 85px;
+  height: 50px;
+  background-color: #009688;
+  box-shadow: 0 0 0 1px #099E44 inset!important;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  float: left;
+  /*color: black;*/
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 0px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  right: -40%;
+  top: -2080%;
+}

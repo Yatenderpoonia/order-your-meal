@@ -5,10 +5,18 @@ orderYourMealApp.controller('CustomerController',
 
 /*  $scope.customerName = customer.name;
   $scope.customerAddress = customer.address;*/
+        $scope.loginShow = true;
         $scope.location_name='';
         var mydata='';
         var citydata='';
         var mysrclat= 0; var mysrclong = 0;
+        $scope.loginGo=function () {
+            $location.path('/login');
+        };
+        if(localStorage.getItem('userId'))
+        {
+            $scope.loginShow=false;
+        }
         $scope.nearme = function() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {

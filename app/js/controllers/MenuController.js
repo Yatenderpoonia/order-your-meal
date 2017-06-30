@@ -45,7 +45,7 @@ orderYourMealApp.controller('MenuController',
                 $location.url('/checkout?name='+$scope.menuimg.name+'&address='+$scope.menuimg.location.address+'');
             }
             else
-                $location.url('/login');
+                $location.url('/login?name='+$scope.menuimg.name+'&address='+$scope.menuimg.location.address+'');
         };
         $scope.getMenu();
 
