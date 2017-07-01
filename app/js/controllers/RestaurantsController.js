@@ -188,20 +188,5 @@ $scope.filterResturants='';
             console.log('custion',JSON.stringify($scope.CUISINES));
 
         };
-  $scope.CUISINE_OPTIONS = {
-    african: 'African',
-    american: 'American',
-    barbecue: 'Barbecue',
-    cafe: 'Cafe',
-    chinese: 'Chinese',
-    'czech/slovak': 'Czech / Slovak',
-    german: 'German',
-    indian: 'Indian',
-    japanese: 'Japanese',
-    mexican: 'Mexican',
-    pizza: 'Pizza',
-    thai: 'Thai',
-    vegetarian: 'Vegetarian'
-  };
 
 });

@@ -5,7 +5,8 @@ orderYourMealApp.controller('CustomerController',
 
 /*  $scope.customerName = customer.name;
   $scope.customerAddress = customer.address;*/
-        $scope.loginShow = true;
+        $rootScope.loginShow = true;
+       // $rootScope.logoutShow = true;
         $scope.location_name='';
         var mydata='';
         var citydata='';
@@ -15,8 +16,15 @@ orderYourMealApp.controller('CustomerController',
         };
         if(localStorage.getItem('userId'))
         {
-            $scope.loginShow=false;
+            $rootScope.loginShow=false;
+            $rootScope.logoutShow = true;
         }
+        $scope.logout=function () {
+            localStorage.clear();
+            $location.path('/');
+            $rootScope.loginShow = true;
+            $rootScope.logoutShow = false;
+        };
         $scope.nearme = function() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {

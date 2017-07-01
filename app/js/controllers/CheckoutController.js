@@ -10,7 +10,7 @@ orderYourMealApp.controller('CheckoutController',
   $scope.res_name = $location.search().name;
   $scope.res_address = $location.search().address;
   $scope.submitting = false;
-var data={};
+        var data={};
 $scope.backtomenu=function () {
     window.history.back();
 };

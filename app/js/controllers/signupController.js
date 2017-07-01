@@ -1,6 +1,8 @@
 
 orderYourMealApp.controller('signupController',
     function signupController($scope, customer, $location,$http) {
+        $scope.res_name = $location.search().name;
+        $scope.res_address = $location.search().address;
 
         $scope.signup=function () {
             var  signupData={
@@ -12,8 +14,14 @@ orderYourMealApp.controller('signupController',
                 $http.post("https://arcane-beyond-17211.herokuapp.com/signup",signupData,{
                     headers: {'Content-Type': 'application/json'}
                 }).then(function (response) {
-                    console.log(JSON.stringify(signupData));
-                    $location.url('/login');
+                    if($scope.res_name && $scope.res_address) {
+                        console.log(JSON.stringify(signupData));
+                        $location.url('/login?name=' + $scope.res_name + '&address=' + $scope.res_address + '');
+                    }
+                    else
+                    {
+                        $location.url('/login');
+                    }
                 });
             }
 

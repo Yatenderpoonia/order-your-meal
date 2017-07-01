@@ -310,12 +310,13 @@ div {
   float: left;
 }
 .icon-swgy-magnifier:before {
+  font-family: FontAwesome;
   position: absolute;
   left: 18px;
   top: 19px;
-  font-size: 14px;
+  font-size: 20px;
   color: #686b78;
-  content: "\f00e";
+  content: "\f002";
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
@@ -552,6 +553,7 @@ fieldset {
   margin-left: 10%;
 }
 .home-search .type-location-container .locate-me {
+  font-family: FontAwesome;
   position: absolute;
   right: 0;
   top: 0;
@@ -564,12 +566,23 @@ fieldset {
   cursor: pointer;
   font-size: 14px;
 }
-.home-search .type-location-container .locate-me-icon {
+.home-search .type-location-container .locate-me:hover{
+  font-family: FontAwesome;
+  background-color: rgba(235, 228, 242, 0.94);
+}
+.home-search .type-location-container .locate-me-icon:before {
+  font-family: FontAwesome;
   position: relative;
-  top: 10px;
+  content:"\f05b";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  top: 8px;
   right: 3px;
 }
 .home-search .type-location-container .locate-me-text {
+  font-family: FontAwesome;
   top: 9px;
   position: relative;
   font-weight: 700;
