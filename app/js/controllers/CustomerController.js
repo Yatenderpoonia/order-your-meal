@@ -42,7 +42,7 @@ orderYourMealApp.controller('CustomerController',
                         .then(function(response) {
                             mydata=response.data.location.title;
                             citydata=response.data.location.city_id;
-                            console.log(mydata);
+                           // console.log(mydata);
                             $scope.xyz= mydata;
                             $scope.customerLocation=citydata;
                             $scope.findRestaurants();
@@ -57,14 +57,14 @@ orderYourMealApp.controller('CustomerController',
         $scope.getLocation= function(cityObj){
       $scope.xyz= cityObj.title;
       $scope.customerLocation=cityObj.city_id;
-      console.log('cityoje',JSON.stringify(cityObj));
+     // console.log('cityoje',JSON.stringify(cityObj));
       $scope.locations='';
   };
 
   $scope.findRestaurants = function() {
     /*customer.name = customerName;
     customer.address = customerAddress;*/
-    console.log('location selected',$scope.customerLocation,$scope.xyz);
+    //console.log('location selected',$scope.customerLocation,$scope.xyz);
      if($scope.customerLocation && $scope.xyz){
 
          $location.url('/resturants?cityId='+$scope.customerLocation+'&q='+$scope.xyz);

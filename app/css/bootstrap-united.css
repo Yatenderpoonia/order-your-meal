@@ -194,7 +194,7 @@ a:hover {
 [class*="span"] {
   float: left;
   min-height: 1px;
-  margin-left: 20px;
+  margin-left: 90px;
 }
 .container,
 .navbar-static-top .container,
@@ -227,13 +227,14 @@ a:hover {
   width: 380px;
 }
 .span4 {
-  width: 300px;
+  width: 400px;
 }
 .span3 {
   width: 220px;
 }
 .span2 {
- /* width: 140px;*/
+  width: 100%;
+  margin-left: -80px;
 }
 .span1 {
   width: 60px;

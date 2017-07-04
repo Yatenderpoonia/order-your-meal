@@ -326,6 +326,7 @@ a:hover {
 
 .row-fluid {
   width: 100%;
+  padding-top:70px;
   *zoom: 1;
 }
 

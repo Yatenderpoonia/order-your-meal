@@ -106,10 +106,11 @@ input.ng-invalid.ng-dirty {
 /* customer */
 
 .fm-customer-bkg {
-  background-image: url('http://i2.cdn.cnn.com/cnnnext/dam/assets/150827094014-restaurant-design-verandah-super-169.jpg');
+  background-image: url('https://www.baby-exit.com/wp-content/uploads/2016/12/Awesome-Restaurant-Pendant-Lights-86-About-Remodel-pendant-track-lighting-with-Restaurant-Pendant-Lights.jpg');
   opacity: 0.8;
-  height: 620px;
-  background-repeat: repeat-x;;
+  background-size: 100% 100%;
+  height: 770px;
+  background-repeat:no-repeat;
 }
 
 
@@ -134,8 +135,8 @@ input.ng-invalid.ng-dirty {
 
 .fm-restaurant-list img {
   margin-right: 10px;
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 200px;
 }
 
 
@@ -147,14 +148,16 @@ input.ng-invalid.ng-dirty {
 
 .fm-restaurant h3 {
   margin-top: 0;
+  margin-left: -100px;
 
 }
 
 .fm-restaurant img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 250px;
+  float: left;
   position: absolute;
-  right: 150%;
+  right: 120%;
 }
 
 .fm-restaurant .fm-rating {
@@ -247,6 +250,16 @@ input.ng-invalid.ng-dirty {
 input.ng-invalid {
   border: 1px solid red;
 }
+.home-search {
+  width: 600px;
+  height: 10px;
+  border-radius: 3px;
+  box-shadow: 0 26px 64px 0 rgba(0,0,0,.6);
+  margin: 40px auto 150px;
+  position: absolute;
+  top: 41%;
+  left:28%;
+}
 .home-search .type-location {
   padding: 20px 110px 20px 50px;
   background: #fff;
@@ -264,7 +277,7 @@ input.ng-invalid {
 .home-search .show-restaurants {
   width: 200px;
   height: 54px;
-  background-color: #fc8019;
+  background-color:  #ff7e00;;
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -285,16 +298,7 @@ input.ng-invalid {
   right: -40%;
   top: 0%;
 }
-.home-search {
-  width: 600px;
-  height: 10px;
-  border-radius: 3px;
-  box-shadow: 0 26px 64px 0 rgba(0,0,0,.6);
-  margin: 40px auto 150px;
-  position: relative;
-  top: 30%;
 
-}
 *, :after, :before {
   box-sizing: border-box;
 }
@@ -612,3 +616,15 @@ fieldset {
   right: -40%;
   top: -2080%;
 }
+.rowfluid {
+  width: 100%;
+  padding-top: 180px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  *zoom: 1;
+}
+.rowfluid .span8{
+  width:600px;
+}
+.ngbin

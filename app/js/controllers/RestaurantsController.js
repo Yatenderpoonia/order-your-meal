@@ -22,7 +22,7 @@ $scope.filterResturants='';
         var allRestaurants=[];
   //var allRestaurants = Restaurant.query(filterAndSortRestaurants);
         var generateRestaurantFromResponse=function(resturants){
-          console.log(JSON.stringify(resturants));
+          //console.log(JSON.stringify(resturants));
             $rootScope.restaurants=[];
 
             angular.forEach(resturants,function (resturant,index) {
