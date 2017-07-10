@@ -1,6 +1,7 @@
 'use strict';
 
 orderYourMealApp.controller('ThankYouController', function ThankYouController($scope,$location) {
+    NProgress.start();
   //$scope.orderId = $routeParams.orderId;
     $scope.name=$location.search().name;
   $scope.backtohome=function () {
@@ -9,4 +10,5 @@ orderYourMealApp.controller('ThankYouController', function ThankYouController($s
   $scope.feedback=function () {
       $location.path('/feed');
   };
+    NProgress.done();
 });

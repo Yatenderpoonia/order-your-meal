@@ -1,17 +1,27 @@
 
 orderYourMealApp.controller('loginController',
-    function loginController($scope, customer, $location,$http, localStorage,$rootScope) {
+    function loginController($scope, customer,$http,$location,localStorage,$rootScope) {
         $scope.res_name = $location.search().name;
         $scope.res_address = $location.search().address;
+        $scope.res_id=$location.search().id;
+        $scope.loadResturants=true;
+        if($scope.showLoader)
+        {
+            $scope.loadResturants=false;
+        }
     $scope.signup=function () {
+        NProgress.start();
         if($scope.res_name && $scope.res_address) {
             $location.url('/signup?name=' + $scope.res_name + '&address=' + $scope.res_address + '');
+            NProgress.done();
         }
         else {
-            $location.url('/signup')
+            $location.url('/signup');
+            NProgress.done();
         }
         };
     $scope.login=function () {
+        NProgress.start();
        var  loginData={
             "email":$scope.email,
             "password":$scope.password
@@ -21,23 +31,22 @@ orderYourMealApp.controller('loginController',
                headers: {'Content-Type': 'application/json'}
            }).then(function (response) {
                if (response.data.isSuccess === true) {
-                   //window.localStorage['getid']=
+                   $scope.showLoader=true;
                    localStorage.setItem('userId', JSON.stringify(response.data.id));
                    localStorage.setItem('userName', JSON.stringify(response.data.name));
                    $rootScope.loginShow=false;
                    $rootScope.logoutShow = true;
-                   console.log(localStorage.getItem('userName'));
-                   console.log(localStorage.getItem('userId'));
-                   console.log(response.data);
-                   console.log("Login sucessfully");
+                   NProgress.done();
                    if($scope.res_name && $scope.res_address) {
                        BootstrapDialog.alert('Welcome! ' + response.data.name + ' Please fill your payment details');
-                       $location.url('/checkout?name=' + $scope.res_name + '&address=' + $scope.res_address + '');
+                       $location.url('/checkout?name=' + $scope.res_name + '&address=' + $scope.res_address +'&id='+$scope.res_id+ '');
                    }
                    else{
+
                        $location.path('/');
                        $rootScope.loginShow=false;
                        $rootScope.logoutShow = true;
+                       NProgress.done();
                        //location.reload();
                    }
 

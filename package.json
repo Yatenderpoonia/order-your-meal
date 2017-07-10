@@ -19,6 +19,7 @@
     "angular": "^1.6.4",
     "angular-animate": "^1.6.4",
     "angular-aria": "^1.6.4",
+    "angular-loading-bar": "^0.9.0",
     "angular-material": "^1.1.4",
     "body-parser": "^1.17.1",
     "connect": "^3.6.0",
@@ -26,6 +27,8 @@
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "morgan": "^1.8.1",
+    "ng-loading-bar": "0.0.8",
+    "nprogress": "^0.2.0",
     "open": ">= 0.0.2",
     "testacular": "canary"
   },

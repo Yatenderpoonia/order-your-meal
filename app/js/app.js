@@ -1,7 +1,11 @@
 'use strict';
 
-var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource','ngStorage']);
+var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource','ngStorage','angularSpinner']);
 
+NProgress.configure({ easing: 'ease', speed: 1000 });
+NProgress.configure({ trickle: false });
+NProgress.configure({ trickleSpeed: 200 });
+NProgress.configure({ showSpinner: true });
 orderYourMealApp.config(function($routeProvider) {
 
   $routeProvider.

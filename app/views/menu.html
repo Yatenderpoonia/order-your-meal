@@ -3,43 +3,35 @@
 -->
 
 
-<div class="loader" ng-show="showLoader"></div>
 <br><br><br>
-<div ng-show="loadResturants">
+<div>
 <div class="container fm-restaurant">
 
-  <div class="row">
-    <div class="span2">
+  <div>
+    <div>
       <img ng-src="{{menuimg.featured_image}}" class="img-rounded">
     </div>
 
-    <div class="span10">
+    <div class="res_detail">
       <h3>{{menuimg.name}}</h3>
+      <div  class="res_detail_in">{{menuimg.location.address}}</div>
+      <div  class="res_detail_in">Cuisines:{{menuimg.cuisines}}</div>
 
-      <div class="row">
-        <div class="span2">
-          <div>{{menuimg.location.address}}</div>
-
-          <fm-rating ng-model="$parent.menuimg.user_rating.aggregate_rating" readonly="true"></fm-rating>
-          <fm-rating ng-model="$parent.menuimg.price_range" symbol="₹" readonly="true"></fm-rating>
+      <div  class="res_detail_in"> <fm-rating ng-model="$parent.menuimg.user_rating.aggregate_rating" readonly="true"></fm-rating></div>
+      <div  class="res_detail_in"> <fm-rating ng-model="$parent.menuimg.price_range" symbol="₹" readonly="true"></fm-rating></div>
 
         </div>
-        <div class="span4">
-          <div>{{restaurant.description}}</div>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
 </div>
 
 
 
 
 
+<div class="menu_container">
 
-<div class="rowfluid">
-
-  <div class="span8 fm-panel fm-menu-list">
+  <div class="menu_item">
     <h4>Menu</h4>
 
 
@@ -54,21 +46,21 @@
 
   </div>
 
-  <div class="span4 fm-panel fm-cart">
+  <div class="cart">
     <h4>Your order</h4>
     <form>
       <ul class="unstyled">
-        <li ng-repeat="item in cart.items">
-          <a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></a>
+        <a><li style="height: 50px;" ng-repeat="item in cart.items">
+        <a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></a>
           {{item.qty}} &times; {{item.name}}
         </li>
       </ul>
-      <div class="pull-right" ng-show="cart.items.length">
+      <div class="pull-right1" ng-show="cart.items.length">
+        <p>
+          <b style="margin-top: 5px;position: absolute;left: 10%">Total: ₹{{cart.total()}}</b>
+        </p>
         <a  ng-disabled="!cart.items.length" class="btn" ng-click="checkout();">Checkout</a>
       </div>
-      <p>
-        <b>Total: ₹{{cart.total()}}</b>
-      </p>
     </form>
   </div>
 </div>

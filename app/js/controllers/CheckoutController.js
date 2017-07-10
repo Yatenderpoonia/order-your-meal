@@ -1,23 +1,25 @@
 'use strict';
 
 orderYourMealApp.controller('CheckoutController',
-    function CheckoutController($scope, cart, customer, $location,$http) {
+    function CheckoutController($scope, cart, customer, $location,$http,$rootScope) {
   $scope.customerName=JSON.parse(localStorage.getItem('userName'));
+  $scope.customerMobile='';
   $scope.customerAddress='';
   $scope.cart = cart;
-  $scope.restaurantId =cart.restaurant.id;
+  $scope.restaurantId =$location.search().id;
   $scope.customer = customer;
   $scope.res_name = $location.search().name;
   $scope.res_address = $location.search().address;
   $scope.submitting = false;
         var data={};
 $scope.backtomenu=function () {
-    window.history.back();
+    $location.url('/menu?id='+ $scope.restaurantId);
 };
   $scope.purchase = function() {
       data = {
           "name": $scope.customerName,
           "Delivery_address": $scope.customerAddress,
+          "mobile":$scope.customerMobile,
           "items": cart.items,
           "payment": cart.payment,
           "totalamount": cart.total(),

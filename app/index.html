@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="orderYourMealApp">
+<html lang="en" ng-app="orderYourMealApp" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <title>OrderYourMeal</title>
@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="css/bootstrap-united.css">
   <link rel="stylesheet" href="css/new.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+
 </head>
 <body ng-controller="CustomerController">
+
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card-2">
-    <a href="#/"><img ng-src="../img/logo.png"style="height: 50px;width: 120px"></a>
+    <a href="#/"><img ng-src="../img/logo"style="height: 45px;width: 140px"></a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a href="#how-it-works" class="w3-bar-item w3-button">How it Works</a>
@@ -59,22 +61,28 @@
   </div>
 -->
 
-<ng-view>
-  <div class="loader" ng-show="showLoader"></div>
-</ng-view>
+
+  <div style="background-image: url('https://cdn.insuranceinbox.com/alpha/newbg.png');">
+    <ng-view>
+    </ng-view>
+  </div>
+
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
 -->
+
 <script src="lib/angular/angular.js"></script>
+<script src='lib/nprogress.js'></script>
+<link rel='stylesheet' href='lib/nprogress.css'/>
+<script src="lib/angular-spinner.min.js"></script>
 <link src="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<!--<link href="//fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">-->
 <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet"/>
+<!--<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />-->
 <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>-->
 <script src="lib/angular/angular-resource.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/CheckoutController.js"></script>
@@ -94,6 +102,5 @@
 <script src="js/controllers/feedBackController.js"></script>
 <script src="js/controllers/loginController.js"></script>
 <script src="js/controllers/signupController.js"></script>
-
 </body>
 </html>

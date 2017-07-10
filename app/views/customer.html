@@ -1,5 +1,4 @@
 <div class="fm-customer-bkg">
-  <div class="loader" ng-show="showLoader"></div>
 <!--<br><br><br>-->
   <div class="home-search">
     <h2 class="hero-title">Order from restaurants near you</h2>
@@ -13,6 +12,7 @@
         </div>
         <div>
   <ul class="list-resutrant">
+    <li class="li-resturant"  ng-repeat="loc in location" ng-click="getLocation(loc);" value="{{loc.city_id}}">{{loc.name}}</li>
     <li class="li-resturant"  ng-repeat="location in locations" ng-click="getLocation(location);" value="{{location.entity_id}}">{{location.title}}</li>
   </ul>
       </div>

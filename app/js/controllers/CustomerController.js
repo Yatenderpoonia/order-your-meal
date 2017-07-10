@@ -5,6 +5,8 @@ orderYourMealApp.controller('CustomerController',
 
 /*  $scope.customerName = customer.name;
   $scope.customerAddress = customer.address;*/
+        //cfpLoadingBar.start();
+        NProgress.start();
         $rootScope.loginShow = true;
        // $rootScope.logoutShow = true;
         $scope.location_name='';
@@ -20,12 +22,15 @@ orderYourMealApp.controller('CustomerController',
             $rootScope.logoutShow = true;
         }
         $scope.logout=function () {
+            NProgress.start();
             localStorage.clear();
             $location.path('/');
             $rootScope.loginShow = true;
             $rootScope.logoutShow = false;
+            NProgress.done();
         };
         $scope.nearme = function() {
+            NProgress.start();
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -46,6 +51,7 @@ orderYourMealApp.controller('CustomerController',
                             $scope.xyz= mydata;
                             $scope.customerLocation=citydata;
                             $scope.findRestaurants();
+                            NProgress.done();
                         });
 
                 });
@@ -55,13 +61,22 @@ orderYourMealApp.controller('CustomerController',
 
         };
         $scope.getLocation= function(cityObj){
-      $scope.xyz= cityObj.title;
-      $scope.customerLocation=cityObj.city_id;
+            if(cityObj.title){
+                $scope.xyz= cityObj.title;
+                $scope.customerLocation=cityObj.city_id;
+            }
+            else {
+                $scope.xyz=cityObj.name;
+                $scope.customerLocation=cityObj.city_id;
+            }
+
      // console.log('cityoje',JSON.stringify(cityObj));
       $scope.locations='';
+            $scope.location='';
   };
 
   $scope.findRestaurants = function() {
+      NProgress.start();
     /*customer.name = customerName;
     customer.address = customerAddress;*/
     //console.log('location selected',$scope.customerLocation,$scope.xyz);
@@ -72,15 +87,31 @@ orderYourMealApp.controller('CustomerController',
      }
       //$rootScope.value=$scope.xyz;
 
-
+      NProgress.done();
   };
+
+$scope.findLocation=function (name) {
+    $http.get('https://arcane-beyond-17211.herokuapp.com/location/name='+name)
+        .then(function (response) {
+            $scope.location=response.data;
+            console.log($scope.location);
+
+        })
+
+};
         $scope.searchLocation= function (name) {
+            $http.get('https://arcane-beyond-17211.herokuapp.com/location/name='+name)
+                .then(function (response) {
+                    $scope.location=response.data;
+                    console.log($scope.location);
+
+                });
             var config = {headers: {
                 'user-key': 'd1a4ed7215f44239de81f991df52350d',
                 'Accept': 'application/json'
             }
             };
-            $http.get("https://developers.zomato.com/api/v2.1/locations?query="+name+'&count=5',config)
+            $http.get("https://developers.zomato.com/api/v2.1/locations?query="+name+'&count=6',config)
                 .then(function(response) {
                     //First function handles success
                     $scope.locations = response.data.location_suggestions;
@@ -90,4 +121,5 @@ orderYourMealApp.controller('CustomerController',
                     alert("Something went wrong");
                 });
         }
+        NProgress.done();
 });

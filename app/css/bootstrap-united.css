@@ -234,7 +234,7 @@ a:hover {
 }
 .span2 {
   width: 100%;
-  margin-left: -80px;
+  margin-left: -40px;
 }
 .span1 {
   width: 60px;
@@ -1832,7 +1832,7 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
+  /*background-image: url("../img/glyphicons-halflings-white.png");*/
 }
 .icon-glass {
   background-position: 0      0;
@@ -3512,7 +3512,7 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   background-color: steelblue;
   background-image: -moz-linear-gradient(top, steelblue,steelblue);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from steelblue), to steelblue);
+  /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from steelblue), to steelblue);*/
   background-image: -webkit-linear-gradient(top,steelblue, steelblue);
   background-image: -o-linear-gradient(top, steelblue, steelblue);
   background-image: linear-gradient(to bottom, steelblue, steelblue);
@@ -4242,7 +4242,7 @@ input[type="submit"].btn.btn-mini {
   margin-top: 1px;
 }
 .modal-header h4 {
-  margin: 10;
+  margin-top: 10px;
   line-height: 40px;
 }
 .modal-body {

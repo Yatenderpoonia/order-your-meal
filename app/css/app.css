@@ -3,7 +3,7 @@
  ****************************************/
 
 .fm-panel {
-  background-color: #fff;
+
 
   border: 1px solid gainsboro;
 
@@ -107,7 +107,7 @@ input.ng-invalid.ng-dirty {
 
 .fm-customer-bkg {
   background-image: url('https://www.baby-exit.com/wp-content/uploads/2016/12/Awesome-Restaurant-Pendant-Lights-86-About-Remodel-pendant-track-lighting-with-Restaurant-Pendant-Lights.jpg');
-  opacity: 0.8;
+  /*opacity: 0.8;*/
   background-size: 100% 100%;
   height: 770px;
   background-repeat:no-repeat;
@@ -142,22 +142,46 @@ input.ng-invalid.ng-dirty {
 
 /* menu */
 
+.res_detail{
+  margin-left: 100px}
+.res_detail_in{
+  margin-left: -60px;
+}
+.menu_container{
+  margin-top: 130px;
+}
+.menu_item{
+  margin-left: 50px;
+  width: 600px;
+  border: 1px solid gainsboro;
+}
+.cart{
+  width: 350px;
+  border: 1px solid gainsboro;
+  position: absolute;
+  top: 52%;
+  left: 70%;
+}
+.pull-right1{
+  margin-left: 250px;
+  margin-top: 20px;
+}
 .fm-restaurant  {
   margin-bottom: 20px;
 }
 
 .fm-restaurant h3 {
   margin-top: 0;
-  margin-left: -100px;
+  margin-left: -60px;
 
 }
 
 .fm-restaurant img {
   width: 100%;
   height: 250px;
-  float: left;
+  /*float: left;*/
   position: absolute;
-  right: 120%;
+  right: 100%;
 }
 
 .fm-restaurant .fm-rating {
@@ -399,6 +423,7 @@ a {
   padding: 6px 25px;
   text-transform: uppercase;
   margin-right: 10px;
+  width: inherit;
   border: 0;
 
 }
@@ -627,4 +652,22 @@ fieldset {
 .rowfluid .span8{
   width:600px;
 }
-.ngbin
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+
+  -webkit-transition: opacity 0.25s, max-width 0.45s;
+  -moz-transition: opacity 0.25s, max-width 0.45s;
+  -o-transition: opacity 0.25s, max-width 0.45s;
+  transition: opacity 0.25s, max-width 0.45s; /* Duration fixed since we animate additional hidden width */
+}
+
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  max-width: 50px; /* More than it will ever come, notice that this affects on animation duration */
+}

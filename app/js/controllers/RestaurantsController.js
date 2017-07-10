@@ -1,18 +1,20 @@
 'use strict';
 
 orderYourMealApp.controller('RestaurantsController',
-    function RestaurantsController($scope, customer, $location, Restaurant,$http, $rootScope) {
+    function RestaurantsController($scope, customer, $location, Restaurant,$http, $rootScope,localStorage) {
 
   /*if (!customer.address) {
     $location.url('/resturants');
   }*/
-  $scope.showLoader=true;
-  $scope.loadResturants=true;
+
+  // $scope.showLoader=true;
+  // $scope.loadResturants=true;
+
   $scope.address=$location.search().q;
-  if($scope.showLoader)
+ /* if($scope.showLoader)
   {
       $scope.loadResturants=false;
-  }
+  }*/
 $scope.filterResturants='';
   var filter = $scope.filter = {
     cuisine: [],
@@ -34,12 +36,13 @@ $scope.filterResturants='';
                 temp.img=resturant.restaurant.featured_image;
                 //temp.menuimg=resturant.restaurant.menu_url;
                 temp.cuisine=resturant.restaurant.cuisines;
-                temp.id=resturant.restaurant.id;
+                temp.id=resturant.restaurant.R.res_id;
                 $scope.restaurants.push(temp);
                 allRestaurants.push(temp);
             })
         };
   var getRestaurants = function () {
+      NProgress.start();
       var cityId = $location.search().cityId;
       var query=$location.search().q;
       //
@@ -48,6 +51,19 @@ $scope.filterResturants='';
           'Accept': 'application/json'
       }
       };
+      $http.get("https://arcane-beyond-17211.herokuapp.com/resturant/city_id="+cityId+"&city="+query.split(',')[0])
+          .then(function (response) {
+              for(var i=0;i<response.data.length;i++){
+                  generateRestaurantFromResponse(response.data[i].restaurants);
+                 // console.log('data',JSON.stringify(response.data[i].restaurants));
+                  generateCuisneFromRespnose(response.data[i].restaurants);
+                  NProgress.done();
+              }
+              },function (response) {
+              alert("Something went wrong");
+
+
+          });
       $http.get("https://developers.zomato.com/api/v2.1/search?entity_id="+cityId+"&start=0&count=20"+"&entity_type=city&q="+query.split(',')[0],config)
           .then(function(response) {
               //First function handles success
@@ -56,6 +72,7 @@ $scope.filterResturants='';
               generateCuisneFromRespnose(response.data.restaurants);
              /* $scope.showLoader=false;
               $scope.loadResturants=true;*/
+              NProgress.done();
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
@@ -106,12 +123,15 @@ $scope.filterResturants='';
               generateRestaurantFromResponse(response.data.restaurants);
 
               generateCuisneFromRespnose(response.data.restaurants);
-              $scope.showLoader=false;
-              $scope.loadResturants=true;
+              NProgress.done();
+
+            /*  $scope.showLoader=false;
+              $scope.loadResturants=true;*/
           }, function(response) {
               //Second function handles error
               alert("Something went wrong");
           });
+
   };
   getRestaurants();
   $scope.$watch('filter', filterAndSortRestaurants, true);
@@ -185,7 +205,7 @@ $scope.filterResturants='';
                 })
             });
             $scope.CUISINES = Array.from(cuisineSet);
-            console.log('custion',JSON.stringify($scope.CUISINES));
+           // console.log('custion',JSON.stringify($scope.CUISINES));
 
         };
 
