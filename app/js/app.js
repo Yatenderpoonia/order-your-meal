@@ -1,6 +1,6 @@
 'use strict';
 
-var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource','ngStorage','angularSpinner']);
+var orderYourMealApp = angular.module('orderYourMealApp', ['ngResource','ngStorage']);
 
 NProgress.configure({ easing: 'ease', speed: 1000 });
 NProgress.configure({ trickle: false });
