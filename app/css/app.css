@@ -283,7 +283,7 @@ input.ng-invalid {
   position: fixed;
   margin-left: 320px;
   margin-top: 310px;
-  /*position: absolute;*/
+  /*position: relative;*/
   /*top: 41%;*/
   /*left:28%;*/
 }

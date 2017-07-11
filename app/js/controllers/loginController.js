@@ -52,8 +52,9 @@ orderYourMealApp.controller('loginController',
 
                }
            }, function(response) {
-               {
+               {NProgress.start();
                    BootstrapDialog.alert('Invalid email or password');
+                   NProgress.done();
 
                }
            });
