@@ -4,11 +4,6 @@ orderYourMealApp.controller('loginController',
         $scope.res_name = $location.search().name;
         $scope.res_address = $location.search().address;
         $scope.res_id=$location.search().id;
-        $scope.loadResturants=true;
-        if($scope.showLoader)
-        {
-            $scope.loadResturants=false;
-        }
     $scope.signup=function () {
         NProgress.start();
         if($scope.res_name && $scope.res_address) {
@@ -31,7 +26,6 @@ orderYourMealApp.controller('loginController',
                headers: {'Content-Type': 'application/json'}
            }).then(function (response) {
                if (response.data.isSuccess === true) {
-                   $scope.showLoader=true;
                    localStorage.setItem('userId', JSON.stringify(response.data.id));
                    localStorage.setItem('userName', JSON.stringify(response.data.name));
                    $rootScope.loginShow=false;

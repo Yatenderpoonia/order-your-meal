@@ -280,7 +280,7 @@ input.ng-invalid {
   border-radius: 3px;
   box-shadow: 0 26px 64px 0 rgba(0,0,0,.6);
   margin: 40px auto 150px;
-  position: fixed;
+  position: absolute;
   margin-left: 320px;
   margin-top: 310px;
   /*position: relative;*/

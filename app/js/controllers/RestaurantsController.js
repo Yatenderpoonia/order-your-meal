@@ -2,7 +2,7 @@
 
 orderYourMealApp.controller('RestaurantsController',
     function RestaurantsController($scope, customer, $location, Restaurant,$http, $rootScope,localStorage) {
-
+        NProgress.start();
   /*if (!customer.address) {
     $location.url('/resturants');
   }*/
@@ -35,14 +35,14 @@ $scope.filterResturants='';
                 temp.price=parseInt(resturant.restaurant.price_range);
                 temp.img=resturant.restaurant.featured_image;
                 //temp.menuimg=resturant.restaurant.menu_url;
-                temp.cuisine=resturant.restaurant.cuisines;
+                temp.cuisine=resturant.restaurant.cuisines.split(', ').join(',');
                 temp.id=resturant.restaurant.R.res_id;
                 $scope.restaurants.push(temp);
                 allRestaurants.push(temp);
             })
         };
   var getRestaurants = function () {
-      NProgress.start();
+
       var cityId = $location.search().cityId;
       var query=$location.search().q;
       //

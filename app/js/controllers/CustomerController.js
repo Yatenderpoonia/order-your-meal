@@ -5,7 +5,6 @@ orderYourMealApp.controller('CustomerController',
 
 /*  $scope.customerName = customer.name;
   $scope.customerAddress = customer.address;*/
-        //cfpLoadingBar.start();
         NProgress.start();
         $rootScope.loginShow = true;
        // $rootScope.logoutShow = true;
@@ -51,6 +50,10 @@ orderYourMealApp.controller('CustomerController',
                             $scope.xyz= mydata;
                             $scope.customerLocation=citydata;
                             $scope.findRestaurants();
+                            NProgress.done();
+                        },function (response) {
+                            NProgress.start();
+                            BootstrapDialog.alert(response.data.message);
                             NProgress.done();
                         });
 
@@ -120,6 +123,6 @@ $scope.findLocation=function (name) {
 
                     alert("Something went wrong");
                 });
-        }
+        };
         NProgress.done();
 });

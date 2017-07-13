@@ -2,12 +2,12 @@
 
 orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScope, $http, alert) {
   var self = this;
-
+    self.message='Your cart is empty.Add an item to begin.';
 
   self.add = function(item, restaurant) {
     if (!self.restaurant || !self.restaurant.id) {
       self.restaurant = {
-        id: restaurant.id,
+        //id: restaurant.id,
         name: restaurant.name,
         description: restaurant.description
       };
@@ -20,10 +20,12 @@ orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScop
           item = null;
         }
       });
+
       if (item) {
         item = angular.copy(item);
         item.qty = 1;
         self.items.push(item);
+        self.message='';
       }
     } else {
       alert('Can not mix menu items from different restaurants.');
@@ -38,8 +40,12 @@ orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScop
     }
     if (!self.items.length) {
       self.restaurant = {};
+      self.message='Your cart is empty.Add an item to begin.';
     }
-  }
+    else{
+      self.message='';
+    }
+  };
 
 
    self.total = function() {
@@ -88,4 +94,9 @@ orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScop
         },
         true);
   }
+    if(localStorage.getItem('fmCartItems')===null)
+    {
+      self.message='';
+    }
+
 });

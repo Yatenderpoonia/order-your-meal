@@ -46,7 +46,7 @@
       </tr>
       <tr style="" ng-repeat="restaurant in restaurants|filter:filterResturants">
         <td>
-          <a href="#/menu?id={{restaurant.id}}">
+          <a href="#/menu?id={{restaurant.id}}&cuisine={{restaurant.cuisine}}">
             <img class="img-rounded pull-left" ng-src="{{restaurant.img}}">
             <b>{{restaurant.name}}</b>
           </a>

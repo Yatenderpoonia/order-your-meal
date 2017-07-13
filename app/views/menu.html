@@ -36,7 +36,7 @@
 
 
     <ul>
-      <li ng-repeat="menuItem in restaurant.menuItems">
+      <li ng-repeat="menuItem in restaurant">
         <a class="add-itemhref" ng-click="cart.add(menuItem, restaurant)">
         <div class="addButton">Add</div></a>
         <span>{{menuItem.name}}</span><br>
@@ -55,6 +55,7 @@
           {{item.qty}} &times; {{item.name}}
         </li>
       </ul>
+      {{cart.message}}
       <div class="pull-right1" ng-show="cart.items.length">
         <p>
           <b style="margin-top: 5px;position: absolute;left: 10%">Total: ₹{{cart.total()}}</b>
@@ -63,5 +64,4 @@
       </div>
     </form>
   </div>
-</div>
 </div>

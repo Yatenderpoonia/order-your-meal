@@ -61,15 +61,15 @@
         <tr ng-repeat="item in cart.items">
           <td><input type="number" ng-model="item.qty"></td>
           <td>{{item.name}}</td>
-          <td>{{item.price | currency}}</td>
-          <td>{{item.price * item.qty | currency}}</td>
+          <td>₹{{item.price}}</td>
+          <td>₹{{item.price * item.qty}}</td>
           <td><a href ng-click="cart.remove(item)"><div class="addButton">remove</div></a></td>
         </tr>
         <tr>
           <th></th>
           <th></th>
           <th>Total:</th>
-          <th>{{ cart.total() | currency }}</th>
+          <th>₹{{ cart.total() }}</th>
           <th></th>
         </tr>
       </table>
