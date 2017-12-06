@@ -18,13 +18,14 @@ orderYourMealApp.controller('loginController',
     $scope.login=function () {
         NProgress.start();
        var  loginData={
-            "email":$scope.email,
+            "mobile":$scope.mobile,
             "password":$scope.password
         };
-       if(loginData.email && loginData.password){
+       if(loginData.mobile && loginData.password){
            $http.post("https://arcane-beyond-17211.herokuapp.com/login",loginData,{
                headers: {'Content-Type': 'application/json'}
            }).then(function (response) {
+               console.log(response.data);
                if (response.data.isSuccess === true) {
                    localStorage.setItem('userId', JSON.stringify(response.data.id));
                    localStorage.setItem('userName', JSON.stringify(response.data.name));

@@ -11,7 +11,7 @@ orderYourMealApp.controller('CustomerController',
         $scope.location_name='';
         var mydata='';
         var citydata='';
-        var mysrclat= 0; var mysrclong = 0;
+        var mysrclat= 1; var mysrclong = 1;
         $scope.loginGo=function () {
             $location.path('/login');
         };

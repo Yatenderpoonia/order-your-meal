@@ -129,7 +129,7 @@ $scope.filterResturants='';
               //Second function handles error
               alert("Something went wrong");
           });
-      NProgress.done();
+
 
   };
   getRestaurants();
@@ -207,5 +207,6 @@ $scope.filterResturants='';
            // console.log('custion',JSON.stringify($scope.CUISINES));
 
         };
+        NProgress.done();
 
 });

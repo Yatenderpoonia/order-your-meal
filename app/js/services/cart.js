@@ -94,9 +94,5 @@ orderYourMealApp.service('cart', function Cart(localStorage, customer, $rootScop
         },
         true);
   }
-    if(localStorage.getItem('fmCartItems')===null)
-    {
-      self.message='';
-    }
 
 });

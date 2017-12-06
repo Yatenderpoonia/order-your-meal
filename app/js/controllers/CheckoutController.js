@@ -1,7 +1,7 @@
 'use strict';
 
 orderYourMealApp.controller('CheckoutController',
-    function CheckoutController($scope, cart, customer, $location,$http,$rootScope) {
+    function CheckoutController($scope, cart, customer, $location,$http,$rootScope,localStorage) {
   $scope.customerName=JSON.parse(localStorage.getItem('userName'));
   $scope.customerMobile='';
   $scope.customerAddress='';
@@ -16,6 +16,8 @@ $scope.backtomenu=function () {
     $location.url('/menu?id='+ $scope.restaurantId);
 };
   $scope.purchase = function() {
+      localStorage.removeItem('fmCartItems');
+      //console.log(cart.fmCartItems);
       data = {
           "name": $scope.customerName,
           "Delivery_address": $scope.customerAddress,

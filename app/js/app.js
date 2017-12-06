@@ -43,11 +43,16 @@ orderYourMealApp.config(function($routeProvider) {
       templateUrl: 'views/Signup.html',
       controller:'signupController'
   }).
+  when('/otp', {
+      templateUrl: 'views/otp.html',
+      controller:'signupController'
+  }).
       when('/help', {
         templateUrl: 'views/help.html'
       }).
       when('/feed', {
           templateUrl: 'views/feed.html',
           controller:'feedBackController'
+  }).otherwise({redirectTo:'/'
   });
 });
