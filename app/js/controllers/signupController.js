@@ -9,8 +9,11 @@ orderYourMealApp.controller('signupController',
 
         $scope.signup=function () {
             NProgress.start();
-            $http.get('https://control.msg91.com/api/sendotp.php?authkey=165827A4FspKV8596ddc84&mobile='+$scope.mobile+'&sender=OYMEAL')
-                .then(function (response) {
+            $http.get('https://control.msg91.com/api/sendotp.php?authkey=165827A4FspKV8596ddc84&mobile='+$scope.mobile+'&sender=OYMEAL',{'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            }}).then(function (response) {
 
                 });
             localStorage.setItem('name',$scope.name);
@@ -22,8 +25,11 @@ orderYourMealApp.controller('signupController',
         };
         $scope.otpconfirm=function () {
             NProgress.start();
-            $http.get('https://control.msg91.com/api/verifyRequestOTP.php?authkey=165827A4FspKV8596ddc84&mobile='+localStorage.getItem('mobile')+'&otp='+$scope.otp+'&sender=OYMEAL')
-                .then(function (response) {
+            $http.get('https://control.msg91.com/api/verifyRequestOTP.php?authkey=165827A4FspKV8596ddc84&mobile='+localStorage.getItem('mobile')+'&otp='+$scope.otp+'&sender=OYMEAL', {'headers': {
+                'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+                    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            }}).then(function (response) {
                     if(response.data.type==='success'){
                         alert(response.data.message);
                         var  signupData={
