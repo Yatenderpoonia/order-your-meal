@@ -9,7 +9,7 @@ orderYourMealApp.controller('signupController',
 
         $scope.signup=function () {
             NProgress.start();
-            $http.get('http://control.msg91.com/api/sendotp.php?authkey=165827A4FspKV8596ddc84&mobile='+$scope.mobile+'&sender=OYMEAL')
+            $http.get('https://control.msg91.com/api/sendotp.php?authkey=165827A4FspKV8596ddc84&mobile='+$scope.mobile+'&sender=OYMEAL')
                 .then(function (response) {
 
                 });
@@ -22,7 +22,7 @@ orderYourMealApp.controller('signupController',
         };
         $scope.otpconfirm=function () {
             NProgress.start();
-            $http.get('http://control.msg91.com/api/verifyRequestOTP.php?authkey=165827A4FspKV8596ddc84&mobile='+localStorage.getItem('mobile')+'&otp='+$scope.otp+'&sender=OYMEAL')
+            $http.get('https://control.msg91.com/api/verifyRequestOTP.php?authkey=165827A4FspKV8596ddc84&mobile='+localStorage.getItem('mobile')+'&otp='+$scope.otp+'&sender=OYMEAL')
                 .then(function (response) {
                     if(response.data.type==='success'){
                         alert(response.data.message);
