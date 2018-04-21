@@ -53,7 +53,11 @@ orderYourMealApp.controller('CustomerController',
                             NProgress.done();
                         },function (response) {
                             NProgress.start();
-                            BootstrapDialog.alert(response.data.message);
+                           mydata='pilani';
+                           citydata=100001;
+                            $scope.xyz= mydata;
+                            $scope.customerLocation=citydata;
+                            $scope.findRestaurants();
                             NProgress.done();
                         });
 
